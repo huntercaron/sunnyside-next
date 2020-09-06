@@ -7,7 +7,7 @@ export default {
         {
             name: "slug",
             type: "slug",
-            title: "Slug",
+            title: "Slug (name for the URL)",
             options: {
                 source: "title",
                 maxLength: 200, // will be ignored if slugify is set
@@ -17,9 +17,9 @@ export default {
         },
         { name: "description", type: "text", title: "Description" },
         {
-            name: "gallery",
+            name: "images",
             type: "array",
-
+            title: "Images",
             options: {
                 layout: "grid",
             },

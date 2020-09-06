@@ -4,11 +4,12 @@ import Head from "next/head"
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api"
 import { Layout } from "../../components"
 
-export default function Post({ post, morePosts, preview }) {
+export default function Project({ post, preview }) {
     const router = useRouter()
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />
     }
+    const { title, images, description } = post
     return (
         <Layout preview={preview}>
             {router.isFallback ? (
@@ -17,11 +18,22 @@ export default function Post({ post, morePosts, preview }) {
                 <>
                     <article>
                         <Head>
-                            <title>{post.title}</title>
+                            <title>{title}</title>
                             {/* <meta property="og:image" content={post.ogImage.url} /> */}
                         </Head>
 
-                        <h2>{post.title}</h2>
+                        <h2>{title}</h2>
+                        <p>{description}</p>
+                        {images.map((image) => (
+                            <img
+                                style={{
+                                    objectFit: "cover",
+                                    width: 250,
+                                    height: 250,
+                                }}
+                                src={image}
+                            />
+                        ))}
                     </article>
                 </>
             )}

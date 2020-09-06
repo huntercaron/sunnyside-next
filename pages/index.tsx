@@ -6,11 +6,12 @@ export default function Home({ allPosts, preview }) {
     return (
         <Layout preview={preview}>
             <Head>
-                <title>Create Next App</title>
+                <title>Sunnyside</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <p>Test</p>
+            <h1>Sunnyside</h1>
+            <p>A nextjs boilerplate using Sanity as a CMS.</p>
 
             {allPosts.map((post) => {
                 return <Item key={post.slug} project={post} />
