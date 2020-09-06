@@ -1,7 +1,8 @@
 import Head from "next/head"
+import { getAllPostsForHome } from "../lib/api"
 import { Item } from "../components"
 
-export default function Home() {
+export default function Home({ allPosts, preview }) {
     return (
         <div>
             <Head>
@@ -10,7 +11,18 @@ export default function Home() {
             </Head>
 
             <p>Test</p>
-            <Item />
+
+            {allPosts.map((post) => {
+                console.log(post)
+                return <Item project={post} />
+            })}
         </div>
     )
+}
+
+export async function getStaticProps({ preview = false }) {
+    const allPosts = await getAllPostsForHome(preview)
+    return {
+        props: { allPosts, preview },
+    }
 }
