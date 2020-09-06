@@ -1317,6 +1317,10 @@
     rxjs "^6.5.3"
     shallow-equals "^1.0.0"
 
+"@sanity/production-preview@^1.150.1":
+  version "1.150.1"
+  resolved "https://registry.npmjs.org/@sanity/production-preview/-/production-preview-1.150.1.tgz#204d1ce8d1f078bd89f05f6197fc71d8052a4dd1"
+
 "@sanity/react-hooks@1.150.5":
   version "1.150.5"
   resolved "https://registry.npmjs.org/@sanity/react-hooks/-/react-hooks-1.150.5.tgz#03da1ef8e0702de7cf6af3ef4350779a820dd9cf"

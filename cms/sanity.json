@@ -12,7 +12,8 @@
         "@sanity/components",
         "@sanity/default-layout",
         "@sanity/default-login",
-        "@sanity/desk-tool"
+        "@sanity/desk-tool",
+        "@sanity/production-preview"
     ],
     "env": {
         "development": {
@@ -22,15 +23,15 @@
     "parts": [
         {
             "name": "part:@sanity/base/schema",
-            "path": "./schemas/schema"
+            "path": "schemas/schema"
         },
         {
             "implements": "part:@sanity/production-preview/resolve-production-url",
-            "path": "./src/resolveProductionUrl.ts"
+            "path": "src/resolveProductionUrl.ts"
         },
         {
             "implements": "part:@sanity/base/theme/variables/override-style",
-            "path": "./src/variableOverrides.css"
+            "path": "src/variableOverrides.css"
         },
         {
             "implements": "part:@sanity/base/brand-logo",
