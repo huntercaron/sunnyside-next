@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-export const Item = ({ project }) => {
+export function Item({ project }) {
     const { slug, title } = project
     return (
         <div>
             <Link as={`/projects/${slug}`} href="/projects/[slug]">
-                {title}
+                <a>{title}</a>
             </Link>
         </div>
     )

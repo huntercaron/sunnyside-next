@@ -2,6 +2,7 @@ import { useRouter } from "next/router"
 import ErrorPage from "next/error"
 import Head from "next/head"
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api"
+import { Layout } from "../../components"
 
 export default function Post({ post, morePosts, preview }) {
     const router = useRouter()
@@ -9,16 +10,14 @@ export default function Post({ post, morePosts, preview }) {
         return <ErrorPage statusCode={404} />
     }
     return (
-        <div>
+        <Layout preview={preview}>
             {router.isFallback ? (
                 <h2>Loading…</h2>
             ) : (
                 <>
                     <article>
                         <Head>
-                            <title>
-                                {post.title} | Next.js Blog Example with{" "}
-                            </title>
+                            <title>{post.title}</title>
                             {/* <meta property="og:image" content={post.ogImage.url} /> */}
                         </Head>
 
@@ -26,7 +25,7 @@ export default function Post({ post, morePosts, preview }) {
                     </article>
                 </>
             )}
-        </div>
+        </Layout>
     )
 }
 
