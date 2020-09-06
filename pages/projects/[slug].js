@@ -4,12 +4,12 @@ import Head from "next/head"
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api"
 import { Layout } from "../../components"
 
-export default function Project({ post, preview }) {
+export default function Project({ post = {}, preview }) {
     const router = useRouter()
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />
     }
-    const { title, images, description } = post
+    const { title = "", images = "", description } = post
     return (
         <Layout preview={preview}>
             {router.isFallback ? (
@@ -23,9 +23,10 @@ export default function Project({ post, preview }) {
                         </Head>
 
                         <h2>{title}</h2>
-                        <p>{description}</p>
+                        {description && <p>{description}</p>}
                         {images.map((image) => (
                             <img
+                                key={image}
                                 style={{
                                     objectFit: "cover",
                                     width: 250,
@@ -47,7 +48,6 @@ export async function getStaticProps({ params, preview = false }) {
         props: {
             preview,
             post: data?.post || null,
-            morePosts: data?.morePosts || null,
         },
     }
 }
