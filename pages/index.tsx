@@ -13,7 +13,7 @@ export default function Home({ allPosts, preview }) {
             <p>Test</p>
 
             {allPosts.map((post) => {
-                return <Item project={post} />
+                return <Item key={post.slug} project={post} />
             })}
         </Layout>
     )

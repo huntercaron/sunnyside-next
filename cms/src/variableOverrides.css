@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+:root {
+  --brand-primary: #111;
+  --brand-secondary: #eee;
+  --border-radius-base: 12px;
+  --font-family-base: 'Inter';
+  /* --gray-base: #a5a5a5; */
+  --main-navigation-color: var(--brand-primary);
+  --gray-lighter: #e5e5e5;
+  --header-height: 4rem;
+}
