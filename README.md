@@ -18,7 +18,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 To run Sanity Studio locally:
 
 ```bash
-yarn cms
+yarn cms:dev
 ```
 
 ## Learn More
