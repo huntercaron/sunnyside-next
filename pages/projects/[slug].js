@@ -9,7 +9,7 @@ export default function Project({ post = {}, preview }) {
     if (!router.isFallback && !post?.slug) {
         return <ErrorPage statusCode={404} />
     }
-    const { title = "", images = "", description } = post
+    const { title = "", images = [], description } = post
     return (
         <Layout preview={preview}>
             {router.isFallback ? (

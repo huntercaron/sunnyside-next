@@ -21,6 +21,11 @@ To run Sanity Studio locally:
 yarn cms:dev
 ```
 
+There are a few steps needed in the sanity dashboard
+- add CORS origin for hosted stuff
+- create api keys for local env
+- add a webhook to your hosting
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
