@@ -14,7 +14,11 @@ const options = {
 
 const client = sanityClient(options)
 
-export const imageBuilder = sanityImage(client)
+const imageBuilder = sanityImage(client)
+
+export function urlFor(source) {
+    return imageBuilder.image(source)
+}
 
 export const previewClient = sanityClient({
     ...options,
