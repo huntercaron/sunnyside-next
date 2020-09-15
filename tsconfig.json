@@ -21,7 +21,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "cms/schemas/project.js"
   ],
   "exclude": [
     "node_modules"

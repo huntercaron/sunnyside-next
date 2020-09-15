@@ -14,7 +14,13 @@ export default function Home({ allPosts, preview }) {
             <p>A nextjs boilerplate using Sanity as a CMS.</p>
 
             {allPosts.map((post) => {
-                return <Item key={post.slug} project={post} />
+                console.log(post)
+                return (
+                    <>
+                        <img src={post.images[0]} />
+                        <Item key={post.slug} project={post} />
+                    </>
+                )
             })}
         </Layout>
     )

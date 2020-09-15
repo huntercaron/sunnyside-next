@@ -12,6 +12,14 @@ const getUniquePosts = (posts) => {
     })
 }
 
+export interface Post {
+    name: string
+    title: string
+    description: string
+    images: string[]
+    slug: string
+}
+
 const postFields = `
   name,
   title,
@@ -48,7 +56,10 @@ export async function getAllPostsForHome(preview) {
     return getUniquePosts(results)
 }
 
-export async function getPostAndMorePosts(slug, preview) {
+export async function getPostAndMorePosts(
+    slug,
+    preview
+): Promise<{ post: Post; morePosts: Post[] }> {
     const curClient = getClient(preview)
     const [post, morePosts] = await Promise.all([
         curClient
