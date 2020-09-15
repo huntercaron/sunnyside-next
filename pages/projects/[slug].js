@@ -1,15 +1,18 @@
 import { useRouter } from "next/router"
 import ErrorPage from "next/error"
 import Head from "next/head"
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api"
+import {
+    getAllProjectsWithSlug,
+    getProjectAndMoreProjects,
+} from "../../lib/api"
 import { Layout } from "../../components"
 
-export default function Project({ post = {}, preview }) {
+export default function Project({ project = {}, preview }) {
     const router = useRouter()
-    if (!router.isFallback && !post?.slug) {
+    if (!router.isFallback && !project?.slug) {
         return <ErrorPage statusCode={404} />
     }
-    const { title = "", images = [], description } = post
+    const { title = "", images = [], description } = project
     return (
         <Layout preview={preview}>
             {router.isFallback ? (
@@ -19,7 +22,7 @@ export default function Project({ post = {}, preview }) {
                     <article>
                         <Head>
                             <title>{title}</title>
-                            {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                            {/* <meta property="og:image" content={project.ogImage.url} /> */}
                         </Head>
 
                         <h2>{title}</h2>
@@ -43,23 +46,23 @@ export default function Project({ post = {}, preview }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-    const data = await getPostAndMorePosts(params.slug, preview)
+    const data = await getProjectAndMoreProjects(params.slug, preview)
     return {
         props: {
             preview,
-            post: data?.post || null,
+            project: data?.project || null,
             revalidate: 1,
         },
     }
 }
 
 export async function getStaticPaths() {
-    const allPosts = await getAllPostsWithSlug()
+    const allProjects = await getAllProjectsWithSlug()
     return {
         paths:
-            allPosts?.map((post) => ({
+            allProjects?.map((project) => ({
                 params: {
-                    slug: post.slug,
+                    slug: project.slug,
                 },
             })) || [],
         fallback: true,

@@ -1,18 +1,18 @@
 import client, { previewClient } from "./sanity"
 
-const getUniquePosts = (posts) => {
+const getUniqueProjects = (projects) => {
     const slugs = new Set()
-    return posts.filter((post) => {
-        if (slugs.has(post.slug)) {
+    return projects.filter((project) => {
+        if (slugs.has(project.slug)) {
             return false
         } else {
-            slugs.add(post.slug)
+            slugs.add(project.slug)
             return true
         }
     })
 }
 
-export interface Post {
+export interface Project {
     name: string
     title: string
     description: string
@@ -20,7 +20,7 @@ export interface Post {
     slug: string
 }
 
-const postFields = `
+const projectFields = `
   name,
   title,
   description,
@@ -30,10 +30,10 @@ const postFields = `
 
 const getClient = (preview) => (preview ? previewClient : client)
 
-export async function getPreviewPostBySlug(slug) {
+export async function getPreviewProjectBySlug(slug) {
     const data = await getClient(true).fetch(
         `*[_type == "project" && slug.current == $slug] | order(date desc){
-      ${postFields}
+      ${projectFields}
       content
     }`,
         { slug }
@@ -41,31 +41,31 @@ export async function getPreviewPostBySlug(slug) {
     return data[0]
 }
 
-export async function getAllPostsWithSlug() {
+export async function getAllProjectsWithSlug() {
     const data = await client.fetch(
         `*[_type == "project"]{ 'slug': slug.current }`
     )
     return data
 }
 
-export async function getAllPostsForHome(preview) {
+export async function getAllProjectsForHome(preview) {
     const results = await getClient(preview)
         .fetch(`*[_type == "project"] | order(title desc, _updatedAt desc){
-      ${postFields}
+      ${projectFields}
     }`)
-    return getUniquePosts(results)
+    return getUniqueProjects(results)
 }
 
-export async function getPostAndMorePosts(
+export async function getProjectAndMoreProjects(
     slug,
     preview
-): Promise<{ post: Post; morePosts: Post[] }> {
+): Promise<{ project: Project; moreProjects: Project[] }> {
     const curClient = getClient(preview)
-    const [post, morePosts] = await Promise.all([
+    const [project, moreProjects] = await Promise.all([
         curClient
             .fetch(
                 `*[_type == "project" && slug.current == $slug] | order(_updatedAt desc) {
-        ${postFields}
+        ${projectFields}
         content,
       }`,
                 { slug }
@@ -73,11 +73,11 @@ export async function getPostAndMorePosts(
             .then((res) => res?.[0]),
         curClient.fetch(
             `*[_type == "project" && slug.current != $slug] | order(date desc, _updatedAt desc){
-        ${postFields}
+        ${projectFields}
         content,
       }[0...1]`,
             { slug }
         ),
     ])
-    return { post, morePosts: [] }
+    return { project, moreProjects: [] }
 }

@@ -1,15 +1,15 @@
 import Head from "next/head"
-import { getAllPostsForHome } from "../lib/api"
+import { getAllProjectsForHome } from "../lib/api"
 import { Item, Layout } from "../components"
-import type { Post } from "../lib/api"
+import type { Project } from "../lib/api"
 
 interface HomeProps {
-    allPosts: Post[]
+    allProjects: Project[]
     preview: boolean
 }
 
 export default function Home(props: HomeProps) {
-    const { allPosts, preview } = props
+    const { allProjects, preview } = props
     return (
         <Layout preview={preview}>
             <Head>
@@ -20,12 +20,12 @@ export default function Home(props: HomeProps) {
             <h1>Sunnyside</h1>
             <p>A nextjs boilerplate using Sanity as a CMS.</p>
 
-            {allPosts.map((post) => {
-                console.log(post)
+            {allProjects.map((project) => {
+                console.log(project)
                 return (
                     <div>
-                        <img src={post.images[0]} />
-                        <Item key={post.slug} project={post} />
+                        <img src={project.images[0]} />
+                        <Item key={project.slug} project={project} />
                     </div>
                 )
             })}
@@ -34,8 +34,8 @@ export default function Home(props: HomeProps) {
 }
 
 export async function getStaticProps({ preview = false }) {
-    const allPosts = await getAllPostsForHome(preview)
+    const allProjects = await getAllProjectsForHome(preview)
     return {
-        props: { allPosts, preview },
+        props: { allProjects, preview },
     }
 }
