@@ -1,8 +1,15 @@
 import Head from "next/head"
 import { getAllPostsForHome } from "../lib/api"
 import { Item, Layout } from "../components"
+import type { Post } from "../lib/api"
 
-export default function Home({ allPosts, preview }) {
+interface HomeProps {
+    allPosts: Post[]
+    preview: boolean
+}
+
+export default function Home(props: HomeProps) {
+    const { allPosts, preview } = props
     return (
         <Layout preview={preview}>
             <Head>
@@ -16,10 +23,10 @@ export default function Home({ allPosts, preview }) {
             {allPosts.map((post) => {
                 console.log(post)
                 return (
-                    <>
+                    <div>
                         <img src={post.images[0]} />
                         <Item key={post.slug} project={post} />
-                    </>
+                    </div>
                 )
             })}
         </Layout>
