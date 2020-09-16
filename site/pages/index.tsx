@@ -20,7 +20,7 @@ export default function Home(props: HomeProps) {
             <h1>Sunnyside</h1>
             <p>A nextjs boilerplate using Sanity as a CMS.</p>
 
-            {allProjects.map((project) => {
+            {allProjects.map(project => {
                 return <Item key={project.slug} project={project} />
             })}
         </Layout>
