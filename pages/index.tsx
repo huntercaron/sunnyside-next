@@ -1,6 +1,5 @@
 import Head from "next/head"
 import { getAllProjectsForHome } from "../lib/api"
-import { urlFor } from "../lib/sanity"
 import { Item, Layout } from "../components"
 import type { Project } from "../lib/api"
 
@@ -22,18 +21,7 @@ export default function Home(props: HomeProps) {
             <p>A nextjs boilerplate using Sanity as a CMS.</p>
 
             {allProjects.map((project) => {
-                // should this move to static props? probably
-                const thumbnail = urlFor(project.images[0])
-                    .width(200)
-                    .height(200)
-                    .url()
-
-                return (
-                    <div key={project.slug}>
-                        <img src={thumbnail} />
-                        <Item key={project.slug} project={project} />
-                    </div>
-                )
+                return <Item key={project.slug} project={project} />
             })}
         </Layout>
     )
