@@ -5,9 +5,10 @@ export function Item({ project }) {
     const { slug, title, images } = project
 
     // should this move to static props? probably
-    const thumbnail = urlFor(images[0]).width(200).height(200).url()
+    const thumbnail = urlFor(images[0]).width(100).height(100).url()
+    
     return (
-        <div>
+        <div style={{ marginTop: 20, display: "flex" }}>
             <Link as={`/projects/${slug}`} href="/projects/[slug]">
                 <a>
                     <div key={project.slug}>
