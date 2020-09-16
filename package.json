@@ -5,5 +5,12 @@
     "workspaces": [
         "site",
         "cms"
-    ]
+    ],
+    "scripts": {
+        "dev": "cd site && next dev",
+        "build": "cd site && next build",
+        "start": "cd site && next start",
+        "cms:dev": "cd cms && yarn start",
+        "cms:build": "cd cms && sanity build ../site/public/edit -y"
+    }
 }
