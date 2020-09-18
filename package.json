@@ -12,5 +12,8 @@
         "start": "cd site && next start",
         "cms:dev": "cd cms && yarn start",
         "cms:build": "cd cms && sanity build ../site/public/edit -y"
+    },
+    "devDependencies": {
+        "husky": "^4.3.0"
     }
 }
