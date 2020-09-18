@@ -1,5 +1,6 @@
 {
     "github": {
         "silent": true
-    }
+    },
+    "rewrites": [{ "source": "/edit", "destination": "https://sunnyside-cms.vercel.app" }]
 }
