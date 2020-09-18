@@ -5,6 +5,13 @@ Basic setup of [Next.js](https://nextjs.org/) with [Sanity](https://www.sanity.i
 
 ## Getting Started (incomplete)
 
+Todo: 
+- simple CLI for setup
+- prompt for URL & tokens
+- add deploy to vercel button
+- figure out better place to put built cms
+- talk about how its bundled for now but shouldn't be
+
 First, run the development server:
 
 ```bash
