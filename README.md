@@ -3,9 +3,8 @@ A minimal & somewhat opinionated Next & Sanity boilerplate.
 
 Basic setup of [Next.js](https://nextjs.org/) with [Sanity](https://www.sanity.io/).
 
-Todo: 
-- [ ] simple CLI for setup
-- [ ] prompt for URL & tokens
+todo: 
+- [ ] simple CLI for setup (prompt for URL & tokens)
 - [ ] add deploy to vercel button
 - [x] figure out better place to put built cms
 - [ ] add realtime data subscriptions to preview mode
@@ -14,15 +13,17 @@ Todo:
 ## Getting Started [rough]
 
 There are a few steps needed to hook up the CMS
-- (Sanity Dashboard) Add CORS origin for your local url and your prod URL
-- (Sanity Dashboard) Create api keys for local env
-- (Local) duplicate .env.example files in cms & site and fill them in. Remove the 'example' part of the file names.
-- (Hosting & Sanity Dashboards) Add a webhook to your hosting env to the sanity dashboard
+- *(Sanity Dashboard)* Add CORS origin for your local url and your prod URL
+- *(Sanity Dashboard)* Create api keys for local env
+- *(Local)* duplicate .env.example files in cms & site and fill them in. Remove the 'example' part of the file names.
+- *(Hosting & Sanity Dashboards)* Add a webhook to your hosting env to the sanity dashboard
 
 Hosting:
 - there are two things to host, the CMS and the site itself
 - you can use vercel with minimal setup, just add two repos with their monorepo support 
 - with netlify also use their monorepo flows, but also use https://github.com/netlify/next-on-netlify
+
+## Using it locally
 
 First, run the development server:
 
