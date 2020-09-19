@@ -12,6 +12,11 @@ Todo:
 - figure out better place to put built cms
 - talk about how its bundled for now but shouldn't be
 
+Hosting:
+- there are two things to host, the CMS and the site itself
+- you can use vercel with minimal setup, just add two repos with their monorepo support 
+- with netlify also use their monorepo flows, but also use https://github.com/netlify/next-on-netlify
+
 First, run the development server:
 
 ```bash
