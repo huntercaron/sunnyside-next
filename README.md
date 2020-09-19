@@ -1,18 +1,23 @@
-# Sunnyside
+# Sunnyside [in-Progress]
 A minimal & somewhat opinionated Next & Sanity boilerplate.
 
 Basic setup of [Next.js](https://nextjs.org/) with [Sanity](https://www.sanity.io/).
 
-## Getting Started (incomplete)
-
-https://vercel.com/guides/deploying-sanity-studio-with-vercel
-
 Todo: 
-- simple CLI for setup
-- prompt for URL & tokens
-- add deploy to vercel button
-- figure out better place to put built cms
-- talk about how its bundled for now but shouldn't be
+- [ ] simple CLI for setup
+- [ ] prompt for URL & tokens
+- [ ] add deploy to vercel button
+- [x] figure out better place to put built cms
+- [ ] add realtime data subscriptions to preview mode
+- [x] setup preview mode
+
+## Getting Started [rough]
+
+There are a few steps needed to hook up the CMS
+- (Sanity Dashboard) Add CORS origin for your local url and your prod URL
+- (Sanity Dashboard) Create api keys for local env
+- (Local) duplicate .env.example files in cms & site and fill them in. Remove the 'example' part of the file names.
+- (Hosting & Sanity Dashboards) Add a webhook to your hosting env to the sanity dashboard
 
 Hosting:
 - there are two things to host, the CMS and the site itself
@@ -35,10 +40,6 @@ To run Sanity Studio locally:
 yarn cms:dev
 ```
 
-There are a few steps needed in the sanity dashboard
-- add CORS origin for hosted stuff
-- create api keys for local env
-- add a webhook to your hosting
 
 ## Learn More
 
@@ -54,3 +55,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+https://vercel.com/guides/deploying-sanity-studio-with-vercel
