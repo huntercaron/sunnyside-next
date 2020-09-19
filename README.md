@@ -5,6 +5,8 @@ Basic setup of [Next.js](https://nextjs.org/) with [Sanity](https://www.sanity.i
 
 ## Getting Started (incomplete)
 
+https://vercel.com/guides/deploying-sanity-studio-with-vercel
+
 Todo: 
 - simple CLI for setup
 - prompt for URL & tokens
