@@ -4,7 +4,7 @@ A minimal & somewhat opinionated Next & Sanity boilerplate.
 Basic setup of [Next.js](https://nextjs.org/) with [Sanity](https://www.sanity.io/).
 
 todo: 
-- [ ] simple CLI for setup (prompt for URL & tokens)
+- [ ] simple CLI for setup (prompt for URL & tokens) probably use [Ink](https://github.com/vadimdemedes/ink)?
 - [ ] add deploy to vercel button
 - [x] figure out better place to put built cms
 - [ ] add realtime data subscriptions to preview mode
